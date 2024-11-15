@@ -10,6 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,7 +30,8 @@ import lombok.Setter;
 public class Shipment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "shipment_id_gen")
+    @SequenceGenerator(name = "shipment_id_gen", sequenceName = "shipment_id_seq", allocationSize = 1)
     @Column(name = "SHIPMENT_ID")
     private Integer shipmentId;
 
