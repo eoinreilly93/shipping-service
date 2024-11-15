@@ -8,7 +8,7 @@ import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-@KafkaListener(topics = "orders", groupId = "orders-group")
+@KafkaListener(topics = "${topics.order}", groupId = "orders-group")
 @Component
 @Slf4j
 @RequiredArgsConstructor
