@@ -80,7 +80,7 @@ class OrderListenerTest {
     void should_ProcessOrder() throws InterruptedException {
         // Given
         final Order order = new Order(UUID.randomUUID(), new BigDecimal("100.00"), "123,456",
-                OrderStatus.CREATED, "London", LocalDateTime.now());
+                OrderStatus.CREATED, "London", LocalDateTime.now(), LocalDateTime.now());
         final OrderKMO orderKMO = new OrderKMO(order);
 
         //Required to give kafka time to register the consumer
