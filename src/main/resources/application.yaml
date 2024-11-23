@@ -25,6 +25,7 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         "[spring.json.trusted.packages]": "com.shop.generic.common.kmos"
+      auto-offset-reset: latest
     bootstrap-servers: "localhost:9092"
   threads:
     virtual:
@@ -68,3 +69,10 @@ gsshop-common:
     jwt-token-salt: abcd1234
     jwt-token-validity: 3600000
 
+# Logs to file and allows SBA to pick it up as well
+logging:
+  file:
+    name: logs/shipping-service.log
+
+topics:
+  order: orders
