@@ -29,8 +29,33 @@ spring:
   threads:
     virtual:
       enabled: true
-  main:
-    web-application-type: none
+#  main:
+#    web-application-type: none
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      group:
+        liveness:
+          include:
+            - livenessState
+            - db
+            - ping
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+server:
+  port: 8084
+  servlet:
+    context-path: "/shipping-service"
+  shutdown: graceful
 
 services:
   order-service:
