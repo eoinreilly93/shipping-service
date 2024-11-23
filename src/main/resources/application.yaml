@@ -74,5 +74,10 @@ logging:
   file:
     name: logs/shipping-service.log
 
+scheduler:
+  tasks:
+    pending-status-update: 1 #in minutes
+    inprogress-status-update: 1 #in minutes
+
 topics:
   order: orders

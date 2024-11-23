@@ -17,7 +17,7 @@ public class ShipmentStatusScheduler {
     /**
      * Updates the pending shipments
      */
-    @Scheduled(fixedDelay = 1, timeUnit = TimeUnit.MINUTES)
+    @Scheduled(fixedDelayString = "${scheduler.tasks.pending-status-update}", timeUnit = TimeUnit.MINUTES)
     public void updatePendingShipmentStatus() {
         log.info("Executing updatePendingShipmentStatus scheduled task");
         this.shippingService.updatePendingShipments();
@@ -26,7 +26,7 @@ public class ShipmentStatusScheduler {
     /**
      * Updates the out of delivery shipments
      */
-    @Scheduled(fixedDelay = 1, timeUnit = TimeUnit.MINUTES)
+    @Scheduled(fixedDelayString = "${scheduler.tasks.inprogress-status-update}", timeUnit = TimeUnit.MINUTES)
     public void updateInProgressShipmentStatus() {
         log.info("Executing updateInProgressShipmentStatus scheduled task");
         this.shippingService.updateInProgressShipments();
